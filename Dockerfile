@@ -9,9 +9,8 @@ RUN cd $GOPATH && go get github.com/42wim/matterbridge &&\
 
 COPY . /home/user/ 
 
-RUN cd /home/user/ && chmod +x docker-entry.sh
+RUN cd /home/user/ && chmod a+x docker-entry.sh && chmod 777 matterbridge.toml
 
 WORKDIR /home/user
 
-ENTRYPOINT ["/home/user/docker-entry.sh"]
-
+ENTRYPOINT ["./docker-entry.sh"]
