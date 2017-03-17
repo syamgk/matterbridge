@@ -1,3 +1,4 @@
+#!/bin/bash
 sed -Ei "s/IRC_NICK/$IRC_NICK/" $config
 sed -Ei "s/MM_SERVER_NAME/$MM_SERVER_NAME/" $config
 sed -Ei "s/MM_TEAM_NAME/$MM_TEAM_NAME/" $config
