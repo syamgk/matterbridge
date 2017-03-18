@@ -1,16 +1,20 @@
 FROM registry.centos.org/centos/centos
 
-RUN useradd user &&  yum -y install golang git 
+RUN yum -y install golang git && \
+    mkdir /opt/matterbridge
 
-ENV GOPATH /tmp/
+ENV GOPATH /opt/matterbridge
 
-RUN cd $GOPATH && go get github.com/42wim/matterbridge &&\
-    cp $GOPATH/bin/matterbridge /home/user/ && cd /home/user
+RUN cd $GOPATH && go get github.com/42wim/matterbridge && \
+    cp $GOPATH/bin/matterbridge /opt/matterbridge 
 
-COPY . /home/user/ 
+COPY . /opt/matterbridge
 
-RUN cd /home/user/ && chmod a+x docker-entry.sh && chmod 777 matterbridge.toml
+RUN  chown -R 1001 /opt/matterbridge && \
+     chmod 777 /opt/matterbridge/matterbridge.toml
 
-WORKDIR /home/user
+WORKDIR /opt/matterbridge
 
-ENTRYPOINT ["./docker-entry.sh"]
+USER 1001
+
+ENTRYPOINT ["/opt/matterbridge/docker-entry.sh"]
