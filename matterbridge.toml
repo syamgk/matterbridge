@@ -14,7 +14,7 @@
     Login="MM_LOGIN"
     Password="MM_PASS"
     PrefixMessagesWithNick=true
-    ShowJoinPart=true
+    ShowJoinPart=false
     RemoteNickFormat="[{PROTOCOL}] <{NICK}> "
 
 [[gateway]]

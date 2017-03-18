@@ -11,7 +11,8 @@ RUN cd $GOPATH && go get github.com/42wim/matterbridge && \
 COPY . /opt/matterbridge
 
 RUN  chown -R 1001 /opt/matterbridge && \
-     chmod 777 /opt/matterbridge/matterbridge.toml
+     chmod -R 777 /opt/matterbridge &&\
+     chmod +x /opt/matterbridge/docker-entry.sh
 
 WORKDIR /opt/matterbridge
 
