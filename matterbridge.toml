@@ -16,22 +16,3 @@
     PrefixMessagesWithNick=true
     ShowJoinPart=false
     RemoteNickFormat="[{PROTOCOL}] <{NICK}> "
-
-[[gateway]]
-name="gateway1"
-enable=true
-    [[gateway.in]]
-    account="irc.freenode"
-    channel="IRC_CHANNEL_NAME"
-
-    [[gateway.out]]
-    account="irc.freenode"
-    channel="IRC_CHANNEL_NAME"
-
-    [[gateway.in]]
-    account="mattermost.work"
-    channel="MM_CHANNEL_NAME"
-
-    [[gateway.out]]
-    account="mattermost.work"
-    channel="MM_CHANNEL_NAME"
