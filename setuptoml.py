@@ -1,7 +1,7 @@
 from os import environ
 
 irc_chan = environ['IRC_CHANNEL_NAMES'].split(",")
-mm_chan = environ['MM_CHANNEL_NAME'].split(",")
+mm_chan = environ['MM_CHANNEL_NAMES'].split(",")
 counter = 1
 o = open("matterbridge.toml",'a')
 print irc_chan, mm_chan
