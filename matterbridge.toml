@@ -3,7 +3,7 @@
     Server="irc.freenode.net:6667"
     Nick="IRC_NICK"
     PrefixMessagesWithNick=true
-    ShowJoinPart=true
+    ShowJoinPart=false
     RemoteNickFormat="<{NICK}> "
 
 [mattermost]
