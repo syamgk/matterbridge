@@ -8,7 +8,6 @@
 
 [mattermost]
     [mattermost.work]   
-    useAPI=true
     Server="MM_SERVER_NAME"
     Team="MM_TEAM_NAME"
     Login="MM_LOGIN"
