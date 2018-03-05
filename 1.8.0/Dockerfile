@@ -1,11 +1,16 @@
 FROM registry.centos.org/centos/centos:7
 
-RUN yum -y install wget && \
-    yum clean all
+RUN yum -y install golang git
+
+ENV GOPATH /tmp/
+
+RUN cd $GOPATH && go get github.com/42wim/matterbridge
 
 RUN mkdir -p /opt/matterbridge && \
-    cd /opt/matterbridge && \
-    wget -O matterbridge https://github.com/42wim/matterbridge/releases/download/v1.8.0/matterbridge-linux-amd64
+    cp /tmp/bin/matterbridge /opt/matterbridge/
+
+RUN rm -rf /tmp/src /tmp/bin /tmp/pkg && \
+    yum clean all
 
 COPY . /opt/matterbridge
 
