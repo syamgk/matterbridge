@@ -4,10 +4,12 @@ RUN yum -y install golang git
 
 ENV GOPATH /tmp/
 
-RUN cd $GOPATH && go get github.com/42wim/matterbridge
+RUN go get github.com/42wim/matterbridge && cd /tmp/src/github.com/42wim/matterbridge && \
+    git checkout tags/v1.8.0 && \
+    go build .
 
 RUN mkdir -p /opt/matterbridge && \
-    cp /tmp/bin/matterbridge /opt/matterbridge/
+    cp /tmp/src/github.com/42wim/matterbridge/matterbridge /opt/matterbridge/
 
 RUN rm -rf /tmp/src /tmp/bin /tmp/pkg && \
     yum clean all
